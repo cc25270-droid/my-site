@@ -3,7 +3,7 @@
   --white: #ffffff;
   --ink: #2b3550;
   --muted: #858a96;
-  --yellow: #f6c82e;
+  --accent: #ec914d;
   --line: #e9e7e1;
   --jp: "Noto Serif JP", "Yu Mincho", serif;
   --en: "Cormorant Garamond", Georgia, serif;
@@ -17,7 +17,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 img, video { display: block; max-width: 100%; }
 h1, h2, h3, p, figure, dl, dd { margin: 0; }
 h1, h2, h3 { font-weight: 400; }
-::selection { background: #f6c82e66; }
+::selection { background: #ec914d66; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
 [hidden] { display: none !important; }
 .skip-link { position: absolute; top: 8px; left: 12px; z-index: 10; padding: 6px 16px; background: var(--white); transform: translateY(-160%); }
@@ -28,9 +28,9 @@ h1, h2, h3 { font-weight: 400; }
 .brand { font-family: var(--en); font-size: 17px; letter-spacing: .18em; white-space: nowrap; }
 .header nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 3.5vw, 26px); flex-wrap: nowrap; }
 .header nav a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--en); font-size: 12px; letter-spacing: .1em; white-space: nowrap; transition: transform .3s ease; }
-.header nav a:hover { transform: translateY(-2px); text-decoration: underline; text-decoration-color: var(--yellow); text-underline-offset: 7px; }
+.header nav a:hover { transform: translateY(-2px); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 7px; }
 
-.hero { padding: 70px 24px 58px; text-align: center; background: radial-gradient(ellipse at 80% 20%, #f6c82e20, transparent 48%), radial-gradient(ellipse at 15% 85%, #f6c82e12, transparent 42%); }
+.hero { padding: 70px 24px 58px; text-align: center; background: radial-gradient(ellipse at 80% 20%, #ec914d20, transparent 48%), radial-gradient(ellipse at 15% 85%, #ec914d12, transparent 42%); }
 .eyebrow { color: var(--muted); font-family: var(--en); font-size: 12px; letter-spacing: .22em; }
 /* 下線の飾りを外し、少し太い文字と余白で芯の強さを出します。 */
 .hero-title { width: fit-content; margin: 24px auto 40px; font-family: var(--en); font-weight: 500; font-size: clamp(46px, 11vw, 100px); line-height: 1.2; letter-spacing: .09em; white-space: nowrap; }
@@ -41,30 +41,35 @@ h1, h2, h3 { font-weight: 400; }
 .hero-school { margin-top: 18px; font-size: 13px; }
 .hero-intro { margin-top: 24px; font-size: 14px; line-height: 2.3; }
 .scroll-link { display: inline-flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 56px; padding: 8px 16px; font-family: var(--en); font-size: 12px; letter-spacing: .2em; }
-.scroll-link span { height: 34px; width: 1px; background: var(--yellow); }
+.scroll-link span { height: 34px; width: 1px; background: var(--accent); }
 
-/* 細い帯の内側だけを切り取り、横スクロールを防ぎます。 */
-.word-band { overflow: hidden; background: var(--yellow); padding: 11px 0; border-top: 1px solid #e8b824; border-bottom: 1px solid #e8b824; }
-.word-track { display: flex; width: max-content; animation: marquee 26s linear infinite; }
-.word-track span { flex: 0 0 auto; font-family: var(--en); font-size: 13px; letter-spacing: .2em; white-space: nowrap; }
+/* 3つのカードはスマホでは縦、PCでは横に並べます。 */
+.traits { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; width: min(100% - 48px, 960px); margin: 0 auto; padding: 12px 0 24px; scroll-margin-top: 24px; }
+.trait-card { min-width: 0; padding: 25px 18px; text-align: center; background: #fff7f0; border: 1px solid #eed7c5; border-top: 3px solid var(--accent); border-radius: 14px; }
+.trait-label { color: #a95119; font-family: var(--en); font-size: 12px; font-weight: 500; letter-spacing: .2em; }
+.trait-card h2 { margin: 9px 0 12px; font-size: 18px; font-weight: 500; letter-spacing: .08em; }
+.trait-text { font-size: 13px; line-height: 2; }
 
 .section { padding: 88px 24px; text-align: center; scroll-margin-top: 24px; }
 .section-heading { margin-bottom: 42px; }
-.section-label { display: inline-block; border-radius: 999px; padding: 4px 21px; background: var(--yellow); font-family: var(--en); font-size: 12px; font-weight: 500; letter-spacing: .16em; }
+.section-label { display: inline-block; border-radius: 999px; padding: 4px 21px; background: var(--accent); font-family: var(--en); font-size: 12px; font-weight: 500; letter-spacing: .16em; }
 .section-heading h2 { margin-top: 14px; font-size: 14px; font-weight: 500; letter-spacing: .12em; }
 .section h3 { font-size: 19px; font-weight: 500; line-height: 1.9; letter-spacing: .04em; }
-mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%, transparent 92%); color: inherit; padding: 0 .1em; }
+mark { background: linear-gradient(transparent 56%, #ec914d55 56%, #ec914d55 92%, transparent 92%); color: inherit; padding: 0 .1em; }
 .about-body { max-width: 620px; margin: auto; }
 
-/* 516×410の画像を縮め、左側の顔だけを104pxの丸に収めます。 */
-.avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 32px; overflow: hidden; border-radius: 50%; background: #edf6fa; box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--yellow); }
-.avatar img { position: absolute; width: 268.32px; height: 213.2px; max-width: none; left: -24px; top: -40px; }
+/* 新しい正方形のイラストを、そのまま丸いアイコンに収めます。 */
+.avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 32px; overflow: hidden; border-radius: 50%; background: #edf6fa; box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--accent); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
 .about-text { margin-top: 24px; }
 .profile { margin: 38px auto 0; max-width: 510px; font-size: 13px; }
 .profile > div { border-top: 1px solid var(--line); padding: 18px 0; }
 .profile > div:last-child { border-bottom: 1px solid var(--line); }
 .profile dt { margin-bottom: 5px; color: var(--muted); font-size: 12px; }
 .profile dd span { display: block; max-width: 400px; margin: 8px auto 0; line-height: 2; }
+.profile-animal { display: flex; justify-content: center; align-items: center; gap: 14px; }
+.profile-animal img { width: 80px; height: 80px; object-fit: contain; }
+.profile .profile-animal span { margin: 0; font-size: 14px; }
 
 .likes { background: var(--white); }
 .like-block { max-width: 740px; margin: auto; }
@@ -73,8 +78,8 @@ mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%
 .like-text { max-width: 520px; margin: 20px auto 0; }
 .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: clamp(14px, 3vw, 28px); margin-top: 34px; padding: 12px 5px; }
 .polaroid { position: relative; min-width: 0; padding: 7px 7px 23px; background: var(--white); border: 1px solid #eeece6; box-shadow: 0 6px 18px #2b355010; transform: rotate(-3deg); transition: transform .35s cubic-bezier(.2, .8, .3, 1.4), box-shadow .35s ease; }
-/* 黄色いテープのような飾り。写真そのものは増やしません。 */
-.polaroid::before { content: ""; position: absolute; z-index: 2; width: 42px; height: 12px; top: -6px; left: calc(50% - 21px); background: #f6c82eb3; transform: rotate(5deg); }
+/* オレンジのテープのような飾り。写真そのものは増やしません。 */
+.polaroid::before { content: ""; position: absolute; z-index: 2; width: 42px; height: 12px; top: -6px; left: calc(50% - 21px); background: #ec914db3; transform: rotate(5deg); }
 .polaroid:nth-child(2) { transform: rotate(2deg); }
 /* スマホでは3枚目を下の中央に置き、写真を小さくしすぎません。 */
 .gallery--uk .polaroid:nth-child(3) { grid-column: 1 / -1; width: calc(50% - clamp(7px, 1.5vw, 14px)); justify-self: center; transform: rotate(-1.5deg); }
@@ -92,10 +97,10 @@ mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%
 .media--video > video { object-fit: contain; }
 
 .challenge-grid { display: grid; max-width: 1040px; margin: auto; gap: 32px; }
-.challenge-card { padding: 32px 20px; background: var(--white); border: 1px solid #f2ead4; border-bottom: 3px solid var(--yellow); border-radius: 16px; }
+.challenge-card { padding: 32px 20px; background: var(--white); border: 1px solid #f1dece; border-bottom: 3px solid var(--accent); border-radius: 16px; }
 .stat { display: flex; align-items: baseline; justify-content: center; gap: 8px; line-height: 1.2; margin-bottom: 20px; }
 .stat > .count { position: relative; isolation: isolate; font-family: var(--en); font-size: 76px; font-weight: 500; font-variant-numeric: lining-nums tabular-nums; }
-.stat > .count::after { content: ""; position: absolute; z-index: -1; left: -4px; right: -4px; bottom: 9px; height: 12px; background: #f6c82e80; border-radius: 50%; transform: rotate(-5deg); }
+.stat > .count::after { content: ""; position: absolute; z-index: -1; left: -4px; right: -4px; bottom: 9px; height: 12px; background: #ec914d60; border-radius: 50%; transform: rotate(-5deg); }
 .unit { font-size: 15px; }
 .challenge-card h3 { font-size: 17px; }
 .challenge-card > p:last-child { max-width: 440px; margin: 18px auto 0; font-size: 14px; }
@@ -104,10 +109,10 @@ mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%
 .contact h2 { font-family: var(--en); font-size: 44px; font-weight: 500; letter-spacing: .08em; }
 /* align-items:startで、片方を開いてももう片方は伸びません。 */
 .contact-links { display: grid; align-items: start; gap: 16px; max-width: 650px; margin: 34px auto 0; }
-.contact-button { display: block; min-width: 0; padding: 17px 12px; border: 1px solid #f6c82e80; border-radius: 12px; background: #fffbec; box-shadow: 0 4px 0 #f6c82e25; transition: transform .3s ease, border-color .25s ease; }
-.contact-button:hover { transform: translateY(-2px); border-color: var(--yellow); }
+.contact-button { display: block; min-width: 0; padding: 17px 12px; border: 1px solid #ec914d60; border-radius: 12px; background: #fff4e9; box-shadow: 0 4px 0 #ec914d25; transition: transform .3s ease, border-color .25s ease; }
+.contact-button:hover { transform: translateY(-2px); border-color: var(--accent); }
 .contact-button:active { transform: translateY(1px); }
-.contact-button.is-open { border-color: var(--yellow); }
+.contact-button.is-open { border-color: var(--accent); }
 .contact-name { display: block; font-family: var(--en); font-size: 21px; letter-spacing: .08em; line-height: 1.5; }
 .contact-detail { display: block; margin-top: 9px; font-size: 12px; letter-spacing: .02em; overflow-wrap: anywhere; }
 
@@ -125,13 +130,14 @@ mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%
   80% { transform: translateY(3px) rotate(-1deg); }
   100% { opacity: 1; transform: translateY(0); }
 }
-@keyframes marquee { to { transform: translateX(-50%); } }
 
 @media (min-width: 600px) {
   .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .polaroid { padding: 10px 10px 30px; }
 }
 @media (min-width: 800px) {
+  .traits { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .trait-card { padding: 30px 16px; }
   .gallery--uk { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .gallery--uk .polaroid:nth-child(3) { grid-column: auto; width: 100%; }
   .header { flex-direction: row; justify-content: space-between; padding: 32px 0; }

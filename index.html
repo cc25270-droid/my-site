@@ -33,16 +33,27 @@
       <p class="hero-name">矢野 公太<span>KOTA YANO</span></p>
       <p class="hero-school">熊本学園大学 商学部 商学科 2年</p>
       <p class="hero-intro">気になったら、とりあえずやってみる。<br>そんな大学生です。</p>
-      <a class="scroll-link" href="#about">SCROLL<span aria-hidden="true"></span></a>
+      <a class="scroll-link" href="#traits">SCROLL<span aria-hidden="true"></span></a>
     </section>
 
-    <!-- 同じ文字を複製して、帯が途切れず流れるようにしています。 -->
-    <div class="word-band" aria-hidden="true">
-      <div class="word-track">
-        <span>VITALITY ✦ CURIOSITY ✦ ACTION ✦ VITALITY ✦ CURIOSITY ✦ ACTION ✦&nbsp;</span>
-        <span>VITALITY ✦ CURIOSITY ✦ ACTION ✦ VITALITY ✦ CURIOSITY ✦ ACTION ✦&nbsp;</span>
-      </div>
-    </div>
+    <!-- 流れる帯の代わりに、私らしさを3つのまとまりで紹介します。 -->
+    <section id="traits" class="traits" aria-label="私らしい3つのこと">
+      <article class="trait-card reveal">
+        <p class="trait-label">CURIOSITY</p>
+        <h2>好奇心</h2>
+        <p class="trait-text">知らない場所や新しい考えに<br>出会うのが好きです。</p>
+      </article>
+      <article class="trait-card reveal">
+        <p class="trait-label">ACTION</p>
+        <h2>行動力</h2>
+        <p class="trait-text">気になったら、まず一歩。<br>やってみることを大切にしています。</p>
+      </article>
+      <article class="trait-card reveal">
+        <p class="trait-label">VITALITY</p>
+        <h2>バイタリティ</h2>
+        <p class="trait-text">挑戦するときは、前向きに。<br>仲間と力を合わせて取り組みます。</p>
+      </article>
+    </section>
 
     <section id="about" class="section about" aria-labelledby="about-title">
       <div class="section-heading reveal">
@@ -50,9 +61,9 @@
         <h2 id="about-title">自己紹介</h2>
       </div>
       <div class="about-body reveal">
-        <!-- 元画像はそのまま。CSSで顔の部分だけを丸く切り取ります。 -->
+        <!-- 顔のイラストは、丸いアイコンとして控えめに表示します。 -->
         <div class="avatar">
-          <img src="images/hero.png" width="516" height="410" alt="笑顔の矢野公太を描いたアニメ風イラスト" loading="lazy">
+          <img src="images/avatar-kota.png" width="1254" height="1254" alt="笑顔の矢野公太を描いた漫画風イラスト" loading="lazy">
         </div>
         <h3>まず動く。話してみる。<br>それが、いちばん得意です。</h3>
         <p class="about-text">はじめまして、矢野公太です。<br>熊本学園大学 商学部 商学科の2年生です。<br>周りからは「熱血」「まじめ」「バイタリティがある」とよく言われます。<br>気になったことは、<mark>とりあえずやってみる。</mark><br>人と話すのも、知らない場所に行くのも大好きです。</p>
@@ -60,6 +71,7 @@
           <div><dt>大学</dt><dd>熊本学園大学 商学部 商学科</dd></div>
           <div><dt>学年</dt><dd>2年</dd></div>
           <div><dt>MBTI</dt><dd>討論者（ENTP-A）<span>好奇心が強く、新しいアイデアを考えたり、人と意見を交わしたりするのが好きなタイプです。</span></dd></div>
+          <div><dt>動物に例えると</dt><dd class="profile-animal"><img src="images/ratel.png" width="1254" height="1254" alt="ラーテルのイラスト" loading="lazy"><span>ラーテル</span></dd></div>
         </dl>
       </div>
     </section>
