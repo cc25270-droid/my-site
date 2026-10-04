@@ -58,7 +58,7 @@ h1, h2, h3 { font-weight: 400; }
 mark { background: linear-gradient(transparent 56%, #ec914d55 56%, #ec914d55 92%, transparent 92%); color: inherit; padding: 0 .1em; }
 .about-body { max-width: 620px; margin: auto; }
 
-/* 516×410の画像を縮め、左側の顔だけを104pxの丸に収めます。 */
+/* 元のhero.pngを縮め、右側の文字が入らないよう顔だけを切り取ります。 */
 .avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 32px; overflow: hidden; border-radius: 50%; background: #edf6fa; box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--accent); }
 .avatar img { position: absolute; width: 268.32px; height: 213.2px; max-width: none; left: -24px; top: -40px; }
 .about-text { margin-top: 24px; }
