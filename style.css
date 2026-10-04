@@ -27,14 +27,17 @@ h1, h2, h3 { font-weight: 400; }
 .header { width: min(100% - 48px, 1040px); margin: auto; padding: 28px 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .brand { font-family: var(--en); font-size: 17px; letter-spacing: .18em; white-space: nowrap; }
 .header nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 3.5vw, 26px); flex-wrap: nowrap; }
-.header nav a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--en); font-size: 12px; letter-spacing: .1em; white-space: nowrap; transition: transform .25s ease; }
-.header nav a:hover { transform: translateY(-3px); }
+.header nav a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--en); font-size: 12px; letter-spacing: .1em; white-space: nowrap; transition: transform .35s cubic-bezier(.2, .8, .3, 1.5); }
+.header nav a:hover { transform: translateY(-4px); text-decoration: underline; text-decoration-color: var(--yellow); text-underline-offset: 7px; }
 
-.hero { padding: 70px 24px 58px; text-align: center; }
+.hero { padding: 70px 24px 58px; text-align: center; background: radial-gradient(ellipse at 80% 20%, #f6c82e20, transparent 48%), radial-gradient(ellipse at 15% 85%, #f6c82e12, transparent 42%); }
 .eyebrow { color: var(--muted); font-family: var(--en); font-size: 12px; letter-spacing: .22em; }
-.hero-title { margin: 20px 0 36px; font-family: var(--en); font-size: clamp(46px, 11vw, 100px); line-height: 1.2; letter-spacing: .07em; white-space: nowrap; }
+.hero-title { position: relative; width: fit-content; margin: 20px auto 36px; font-family: var(--en); font-size: clamp(46px, 11vw, 100px); line-height: 1.2; letter-spacing: .07em; white-space: nowrap; isolation: isolate; }
+/* 黄色の下線で、文字を太くせずに元気さを足します。 */
+.hero-title::after { content: ""; position: absolute; z-index: -1; left: 3%; right: 3%; bottom: .09em; height: .15em; border-radius: 50%; background: #f6c82e85; transform: rotate(-2deg); }
+.hero-title span:last-child { color: #e7b61b; }
 .hero-title span { display: inline-block; }
-.hero-title.play span { animation: letter-bounce .85s both; animation-delay: calc(var(--i) * .075s); }
+.hero-title.play span { animation: letter-bounce .8s both; animation-delay: calc(var(--i) * .065s); }
 .hero-name { font-size: 20px; letter-spacing: .2em; }
 .hero-name span { display: block; margin-top: 4px; color: var(--muted); font-family: var(--en); font-size: 13px; letter-spacing: .2em; }
 .hero-school { margin-top: 18px; font-size: 13px; }
@@ -43,20 +46,20 @@ h1, h2, h3 { font-weight: 400; }
 .scroll-link span { height: 34px; width: 1px; background: var(--yellow); }
 
 /* 細い帯の内側だけを切り取り、横スクロールを防ぎます。 */
-.word-band { overflow: hidden; background: var(--yellow); padding: 8px 0; }
-.word-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.word-band { overflow: hidden; background: var(--yellow); padding: 11px 0; border-top: 1px solid #e8b824; border-bottom: 1px solid #e8b824; }
+.word-track { display: flex; width: max-content; animation: marquee 26s linear infinite; }
 .word-track span { flex: 0 0 auto; font-family: var(--en); font-size: 13px; letter-spacing: .2em; white-space: nowrap; }
 
 .section { padding: 88px 24px; text-align: center; scroll-margin-top: 24px; }
 .section-heading { margin-bottom: 42px; }
-.section-label { display: inline-block; border-radius: 999px; padding: 3px 18px; background: var(--yellow); font-family: var(--en); font-size: 12px; letter-spacing: .16em; }
+.section-label { display: inline-block; border-radius: 999px; padding: 4px 21px; background: var(--yellow); box-shadow: 3px 4px 0 #f6c82e25; transform: rotate(-3deg); font-family: var(--en); font-size: 12px; letter-spacing: .16em; }
 .section-heading h2 { margin-top: 14px; font-size: 14px; letter-spacing: .12em; }
 .section h3 { font-size: 19px; line-height: 1.9; letter-spacing: .04em; }
-mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%, transparent 91%); color: inherit; padding: 0 .1em; }
+mark { background: linear-gradient(transparent 56%, #f6c82e95 56%, #f6c82e95 92%, transparent 92%); color: inherit; padding: 0 .1em; }
 .about-body { max-width: 620px; margin: auto; }
 
 /* 516×410の画像を縮め、左側の顔だけを104pxの丸に収めます。 */
-.avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 28px; overflow: hidden; border-radius: 50%; background: #edf6fa; }
+.avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 32px; overflow: hidden; border-radius: 50%; background: #edf6fa; box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--yellow); }
 .avatar img { position: absolute; width: 268.32px; height: 213.2px; max-width: none; left: -24px; top: -40px; }
 .about-text { margin-top: 24px; }
 .profile { margin: 38px auto 0; max-width: 510px; font-size: 13px; }
@@ -70,28 +73,31 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
 .like-block + .like-block { margin-top: 80px; }
 .number-label { margin-bottom: 8px; color: var(--muted); font-family: var(--en); font-size: 15px; letter-spacing: .12em; }
 .like-text { max-width: 520px; margin: 20px auto 0; }
-.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 3vw, 24px); margin-top: 34px; padding: 8px 3px; }
-.polaroid { min-width: 0; padding: 7px 7px 23px; background: var(--white); border: 1px solid #eeece6; box-shadow: 0 5px 16px #2b35500a; transform: rotate(-3deg); transition: transform .3s ease, box-shadow .3s ease; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: clamp(14px, 3vw, 28px); margin-top: 34px; padding: 12px 5px; }
+.polaroid { position: relative; min-width: 0; padding: 7px 7px 23px; background: var(--white); border: 1px solid #eeece6; box-shadow: 0 6px 18px #2b355010; transform: rotate(-3deg); transition: transform .35s cubic-bezier(.2, .8, .3, 1.4), box-shadow .35s ease; }
+/* 黄色いテープのような飾り。写真そのものは増やしません。 */
+.polaroid::before { content: ""; position: absolute; z-index: 2; width: 42px; height: 12px; top: -6px; left: calc(50% - 21px); background: #f6c82eb3; transform: rotate(5deg); }
 .polaroid:nth-child(2) { transform: rotate(2deg); }
-.polaroid:nth-child(3) { transform: rotate(-1.5deg); }
+/* スマホでは3枚目を下の中央に置き、写真を小さくしすぎません。 */
+.gallery--uk .polaroid:nth-child(3) { grid-column: 1 / -1; width: calc(50% - clamp(7px, 1.5vw, 14px)); justify-self: center; transform: rotate(-1.5deg); }
 .polaroid:hover, .polaroid:focus-within { transform: rotate(0) scale(1.035); box-shadow: 0 8px 22px #2b355012; }
+.gallery--uk .polaroid:nth-child(3):hover, .gallery--uk .polaroid:nth-child(3):focus-within { transform: rotate(0) scale(1.035); }
 .media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg); }
 /* 写真も動画も、縦横比にかかわらず枠を埋めます。 */
 .media > img, .media > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-.media:has(> img, > video) .placeholder { display: none; }
-.placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); font-family: var(--en); font-size: 26px; line-height: 1.5; }
-.placeholder span { margin-top: 5px; font-size: 12px; letter-spacing: .15em; }
+.media--stadium { aspect-ratio: 4 / 3; }
 
 /* 録画の全体が見える縦長の枠。スマホでも再生操作をしやすくします。 */
-.gallery--food { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; margin-left: auto; margin-right: auto; }
-.polaroid--video { grid-column: 1 / -1; width: min(100%, 320px); justify-self: center; transform: rotate(-1deg); }
+.gallery--food { grid-template-columns: minmax(0, 1fr); max-width: 320px; margin-left: auto; margin-right: auto; }
+.polaroid--video { width: 100%; justify-self: center; transform: rotate(-1deg); }
 .media--video { aspect-ratio: 590 / 1198; }
 .media--video > video { object-fit: contain; }
 
 .challenge-grid { display: grid; max-width: 1040px; margin: auto; gap: 32px; }
-.challenge-card { padding: 30px 18px; border-top: 1px solid var(--line); }
+.challenge-card { padding: 32px 20px; background: var(--white); border: 1px solid #f2ead4; border-bottom: 3px solid var(--yellow); border-radius: 16px; }
 .stat { display: flex; align-items: baseline; justify-content: center; gap: 8px; line-height: 1.2; margin-bottom: 20px; }
-.stat > .count { font-family: var(--en); font-size: 76px; font-variant-numeric: lining-nums tabular-nums; }
+.stat > .count { position: relative; isolation: isolate; font-family: var(--en); font-size: 76px; font-variant-numeric: lining-nums tabular-nums; }
+.stat > .count::after { content: ""; position: absolute; z-index: -1; left: -4px; right: -4px; bottom: 9px; height: 12px; background: #f6c82e80; border-radius: 50%; transform: rotate(-5deg); }
 .unit { font-size: 15px; }
 .challenge-card h3 { font-size: 17px; }
 .challenge-card > p:last-child { max-width: 440px; margin: 18px auto 0; font-size: 14px; }
@@ -100,8 +106,9 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
 .contact h2 { font-family: var(--en); font-size: 44px; letter-spacing: .08em; }
 /* align-items:startで、片方を開いてももう片方は伸びません。 */
 .contact-links { display: grid; align-items: start; gap: 16px; max-width: 650px; margin: 34px auto 0; }
-.contact-button { display: block; min-width: 0; padding: 17px 12px; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); transition: transform .25s ease, border-color .25s ease; }
-.contact-button:hover { transform: translateY(-3px); border-color: var(--yellow); }
+.contact-button { display: block; min-width: 0; padding: 17px 12px; border: 1px solid #f6c82e80; border-radius: 12px; background: #fffbec; box-shadow: 0 4px 0 #f6c82e25; transition: transform .35s cubic-bezier(.2, .8, .3, 1.5), border-color .25s ease; }
+.contact-button:hover { transform: translateY(-5px); border-color: var(--yellow); }
+.contact-button:active { transform: translateY(1px); }
 .contact-button.is-open { border-color: var(--yellow); }
 .contact-name { display: block; font-family: var(--en); font-size: 21px; letter-spacing: .08em; line-height: 1.5; }
 .contact-detail { display: block; margin-top: 9px; font-size: 12px; letter-spacing: .02em; overflow-wrap: anywhere; }
@@ -115,9 +122,9 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
 .reveal { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-pending { opacity: 0; transform: translateY(20px); }
 @keyframes letter-bounce {
-  0% { opacity: 0; transform: translateY(16px); }
-  60% { opacity: 1; transform: translateY(-6px); }
-  80% { transform: translateY(2px); }
+  0% { opacity: 0; transform: translateY(24px) rotate(-4deg); }
+  60% { opacity: 1; transform: translateY(-10px) rotate(2deg); }
+  80% { transform: translateY(3px) rotate(-1deg); }
   100% { opacity: 1; transform: translateY(0); }
 }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -127,6 +134,8 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
   .polaroid { padding: 10px 10px 30px; }
 }
 @media (min-width: 800px) {
+  .gallery--uk { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery--uk .polaroid:nth-child(3) { grid-column: auto; width: 100%; }
   .header { flex-direction: row; justify-content: space-between; padding: 32px 0; }
   .header nav { gap: 30px; }
   .header nav a { font-size: 13px; }
@@ -134,7 +143,7 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
   .hero-title { margin-bottom: 44px; }
   .section { padding: 108px 40px; }
   .challenge-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-  .challenge-card { padding: 30px 4px; }
+  .challenge-card { padding: 32px 18px; }
   .challenge-card > p:last-child { font-size: 13px; }
   .contact { padding-top: 80px; padding-bottom: 90px; }
 }
@@ -144,6 +153,7 @@ mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal.is-pending { opacity: 1; transform: none; }
-  .header nav a:hover, .contact-button:hover { transform: none; }
+  .header nav a:hover, .contact-button:hover, .contact-button:active { transform: none; }
   .polaroid:hover, .polaroid:focus-within { transform: none; }
+  .gallery--uk .polaroid:nth-child(3):hover, .gallery--uk .polaroid:nth-child(3):focus-within { transform: rotate(-1.5deg); }
 }
