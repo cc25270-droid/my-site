@@ -1,120 +1,149 @@
 :root {
-  --red: #e5262b;
-  --pink: #fdeceb;
-  --pink-num: #fbd9d7;
-  --text: #222;
-  --sub: #555;
-  --line: #f1e4e3;
+  --bg: #fdfbf6;
+  --white: #ffffff;
+  --ink: #2b3550;
+  --muted: #858a96;
+  --yellow: #f6c82e;
+  --line: #e9e7e1;
+  --jp: "Noto Serif JP", "Yu Mincho", serif;
+  --en: "Cormorant Garamond", Georgia, serif;
 }
-* { box-sizing: border-box; margin: 0; }
+
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: var(--text);
-  background: #fff;
-  line-height: 1.8;
-}
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--jp); font-size: 15px; font-weight: 400; line-height: 2.1; }
 a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img, video { display: block; max-width: 100%; }
+h1, h2, h3, p, figure, dl, dd { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+::selection { background: #f6c82e66; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+[hidden] { display: none !important; }
+.skip-link { position: absolute; top: 8px; left: 12px; z-index: 10; padding: 6px 16px; background: var(--white); transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
 
-/* header */
-.site-header {
-  position: sticky; top: 0; z-index: 10;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 48px; background: rgba(255,255,255,.95);
-  border-bottom: 1px solid var(--line);
-}
-.logo { font-weight: 900; font-size: 20px; letter-spacing: .02em; }
-.logo span { color: var(--red); }
-.site-header nav { display: flex; gap: 32px; font-size: 14px; }
-.site-header nav a { padding-bottom: 4px; border-bottom: 3px solid transparent; }
-.site-header nav a:hover, .site-header nav a.active { border-color: var(--red); }
+/* スマホではロゴとメニューを別の段に。メニュー自体は常に1行です。 */
+.header { width: min(100% - 48px, 1040px); margin: auto; padding: 28px 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.brand { font-family: var(--en); font-size: 17px; letter-spacing: .18em; white-space: nowrap; }
+.header nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 3.5vw, 26px); flex-wrap: nowrap; }
+.header nav a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--en); font-size: 12px; letter-spacing: .1em; white-space: nowrap; transition: transform .25s ease; }
+.header nav a:hover { transform: translateY(-3px); }
 
-/* hero */
-.hero {
-  display: grid; grid-template-columns: 1fr 1.3fr; align-items: center;
-  background: linear-gradient(90deg, #fff 40%, #eef5fb);
-}
-.hero-text { padding: 48px; }
-.hero h1 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.35; font-weight: 900; }
-.hero h1 em {
-  font-style: normal; color: var(--red);
-  background: linear-gradient(transparent 82%, var(--red) 82%);
-}
-.hero p { margin: 28px 0; color: var(--sub); }
-.hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.btn {
-  display: inline-block; padding: 12px 44px; border-radius: 999px;
-  background: var(--red); color: #fff; font-weight: 700;
-  box-shadow: 0 6px 16px rgba(229,38,43,.3); transition: transform .2s;
-}
-.btn:hover { transform: translateY(-2px); }
+.hero { padding: 70px 24px 58px; text-align: center; }
+.eyebrow { color: var(--muted); font-family: var(--en); font-size: 12px; letter-spacing: .22em; }
+.hero-title { margin: 20px 0 36px; font-family: var(--en); font-size: clamp(46px, 11vw, 100px); line-height: 1.2; letter-spacing: .07em; white-space: nowrap; }
+.hero-title span { display: inline-block; }
+.hero-title.play span { animation: letter-bounce .85s both; animation-delay: calc(var(--i) * .075s); }
+.hero-name { font-size: 20px; letter-spacing: .2em; }
+.hero-name span { display: block; margin-top: 4px; color: var(--muted); font-family: var(--en); font-size: 13px; letter-spacing: .2em; }
+.hero-school { margin-top: 18px; font-size: 13px; }
+.hero-intro { margin-top: 24px; font-size: 14px; line-height: 2.3; }
+.scroll-link { display: inline-flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 56px; padding: 8px 16px; font-family: var(--en); font-size: 12px; letter-spacing: .2em; }
+.scroll-link span { height: 34px; width: 1px; background: var(--yellow); }
 
-/* sections */
-.section { max-width: 1100px; margin: 0 auto; padding: 72px 48px 0; }
-.section-head { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 32px; position: relative; }
-.num { font-size: 88px; font-weight: 900; color: var(--pink-num); line-height: .9; }
-.en { color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
-h2 { font-size: 28px; font-weight: 900; }
-h2::after { content: ""; display: block; width: 32px; height: 3px; background: var(--red); margin-top: 6px; }
-.memo { margin-left: auto; font-family: "Yomogi", cursive; text-align: center; transform: rotate(-3deg); }
+/* 細い帯の内側だけを切り取り、横スクロールを防ぎます。 */
+.word-band { overflow: hidden; background: var(--yellow); padding: 8px 0; }
+.word-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.word-track span { flex: 0 0 auto; font-family: var(--en); font-size: 13px; letter-spacing: .2em; white-space: nowrap; }
 
-.about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
-.about > p { color: var(--sub); }
-.profile { background: var(--pink); border-radius: 16px; padding: 28px; display: grid; gap: 18px; }
-.profile dt { font-weight: 700; }
-.profile dd { font-weight: 700; margin-left: 1.6em; }
-.profile dd small { display: block; font-weight: 400; font-size: 12px; color: var(--sub); line-height: 1.6; margin-top: 4px; }
+.section { padding: 88px 24px; text-align: center; scroll-margin-top: 24px; }
+.section-heading { margin-bottom: 42px; }
+.section-label { display: inline-block; border-radius: 999px; padding: 3px 18px; background: var(--yellow); font-family: var(--en); font-size: 12px; letter-spacing: .16em; }
+.section-heading h2 { margin-top: 14px; font-size: 14px; letter-spacing: .12em; }
+.section h3 { font-size: 19px; line-height: 1.9; letter-spacing: .04em; }
+mark { background: linear-gradient(transparent 62%, #f6c82e70 62%, #f6c82e70 91%, transparent 91%); color: inherit; padding: 0 .1em; }
+.about-body { max-width: 620px; margin: auto; }
 
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.cards article, .interests article {
-  border: 1px solid var(--line); border-radius: 12px; padding: 24px 18px;
-  background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.04);
+/* 516×410の画像を縮め、左側の顔だけを104pxの丸に収めます。 */
+.avatar { position: relative; width: 104px; height: 104px; margin: 0 auto 28px; overflow: hidden; border-radius: 50%; background: #edf6fa; }
+.avatar img { position: absolute; width: 268.32px; height: 213.2px; max-width: none; left: -24px; top: -40px; }
+.about-text { margin-top: 24px; }
+.profile { margin: 38px auto 0; max-width: 510px; font-size: 13px; }
+.profile > div { border-top: 1px solid var(--line); padding: 18px 0; }
+.profile > div:last-child { border-bottom: 1px solid var(--line); }
+.profile dt { margin-bottom: 5px; color: var(--muted); font-size: 12px; }
+.profile dd span { display: block; max-width: 400px; margin: 8px auto 0; line-height: 2; }
+
+.likes { background: var(--white); }
+.like-block { max-width: 740px; margin: auto; }
+.like-block + .like-block { margin-top: 80px; }
+.number-label { margin-bottom: 8px; color: var(--muted); font-family: var(--en); font-size: 15px; letter-spacing: .12em; }
+.like-text { max-width: 520px; margin: 20px auto 0; }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 3vw, 24px); margin-top: 34px; padding: 8px 3px; }
+.polaroid { min-width: 0; padding: 7px 7px 23px; background: var(--white); border: 1px solid #eeece6; box-shadow: 0 5px 16px #2b35500a; transform: rotate(-3deg); transition: transform .3s ease, box-shadow .3s ease; }
+.polaroid:nth-child(2) { transform: rotate(2deg); }
+.polaroid:nth-child(3) { transform: rotate(-1.5deg); }
+.polaroid:hover, .polaroid:focus-within { transform: rotate(0) scale(1.035); box-shadow: 0 8px 22px #2b355012; }
+.media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg); }
+/* 写真も動画も、縦横比にかかわらず枠を埋めます。 */
+.media > img, .media > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.media:has(> img, > video) .placeholder { display: none; }
+.placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); font-family: var(--en); font-size: 26px; line-height: 1.5; }
+.placeholder span { margin-top: 5px; font-size: 12px; letter-spacing: .15em; }
+
+/* 録画の全体が見える縦長の枠。スマホでも再生操作をしやすくします。 */
+.gallery--food { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; margin-left: auto; margin-right: auto; }
+.polaroid--video { grid-column: 1 / -1; width: min(100%, 320px); justify-self: center; transform: rotate(-1deg); }
+.media--video { aspect-ratio: 590 / 1198; }
+.media--video > video { object-fit: contain; }
+
+.challenge-grid { display: grid; max-width: 1040px; margin: auto; gap: 32px; }
+.challenge-card { padding: 30px 18px; border-top: 1px solid var(--line); }
+.stat { display: flex; align-items: baseline; justify-content: center; gap: 8px; line-height: 1.2; margin-bottom: 20px; }
+.stat > .count { font-family: var(--en); font-size: 76px; font-variant-numeric: lining-nums tabular-nums; }
+.unit { font-size: 15px; }
+.challenge-card h3 { font-size: 17px; }
+.challenge-card > p:last-child { max-width: 440px; margin: 18px auto 0; font-size: 14px; }
+
+.contact { padding-top: 68px; padding-bottom: 84px; background: var(--white); }
+.contact h2 { font-family: var(--en); font-size: 44px; letter-spacing: .08em; }
+/* align-items:startで、片方を開いてももう片方は伸びません。 */
+.contact-links { display: grid; align-items: start; gap: 16px; max-width: 650px; margin: 34px auto 0; }
+.contact-button { display: block; min-width: 0; padding: 17px 12px; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); transition: transform .25s ease, border-color .25s ease; }
+.contact-button:hover { transform: translateY(-3px); border-color: var(--yellow); }
+.contact-button.is-open { border-color: var(--yellow); }
+.contact-name { display: block; font-family: var(--en); font-size: 21px; letter-spacing: .08em; line-height: 1.5; }
+.contact-detail { display: block; margin-top: 9px; font-size: 12px; letter-spacing: .02em; overflow-wrap: anywhere; }
+
+.footer { padding: 36px 24px 28px; text-align: center; }
+.page-top { display: inline-flex; min-height: 44px; align-items: center; gap: 14px; font-family: var(--en); font-size: 12px; letter-spacing: .16em; }
+.page-top span { font-family: serif; color: var(--muted); }
+.footer p { margin-top: 20px; color: var(--muted); font-family: var(--en); font-size: 12px; letter-spacing: .14em; }
+
+/* 隠す指定はJSが準備できた要素だけ。通常はすべて表示します。 */
+.reveal { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s ease; }
+.reveal.is-pending { opacity: 0; transform: translateY(20px); }
+@keyframes letter-bounce {
+  0% { opacity: 0; transform: translateY(16px); }
+  60% { opacity: 1; transform: translateY(-6px); }
+  80% { transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
-.cards article { text-align: center; }
-.icon {
-  width: 60px; height: 60px; border-radius: 50%; background: var(--pink);
-  display: grid; place-items: center; font-size: 28px; margin: 0 auto 12px; flex-shrink: 0;
-}
-h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.cards p, .interests p, .experience p { font-size: 14px; color: var(--sub); }
+@keyframes marquee { to { transform: translateX(-50%); } }
 
-.interests { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.interests article { display: flex; gap: 20px; padding: 28px; }
-.interests .icon { margin: 0; }
-
-.experience { display: grid; grid-template-columns: repeat(3, 1fr); }
-.experience article { padding: 0 24px; border-left: 1px solid var(--pink-num); }
-.experience article:first-child { border-left: 0; padding-left: 0; }
-
-/* contact */
-.contact {
-  margin-top: 72px; padding: 32px 48px; background: var(--pink);
-  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+@media (min-width: 600px) {
+  .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .polaroid { padding: 10px 10px 30px; }
 }
-.contact h2::after { display: none; }
-.contact p { font-size: 13px; color: var(--sub); flex: 1; min-width: 240px; }
-.links { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
-.links a {
-  background: #fff; border-radius: 999px; padding: 10px 28px;
-  display: flex; flex-direction: column; line-height: 1.4; font-size: 13px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+@media (min-width: 800px) {
+  .header { flex-direction: row; justify-content: space-between; padding: 32px 0; }
+  .header nav { gap: 30px; }
+  .header nav a { font-size: 13px; }
+  .hero { padding-top: 95px; padding-bottom: 74px; }
+  .hero-title { margin-bottom: 44px; }
+  .section { padding: 108px 40px; }
+  .challenge-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .challenge-card { padding: 30px 4px; }
+  .challenge-card > p:last-child { font-size: 13px; }
+  .contact { padding-top: 80px; padding-bottom: 90px; }
 }
-.links span { color: var(--sub); font-size: 11px; }
-.links a.reveal { cursor: pointer; }
-.links a.reveal:not(.open) span { display: none; }
-/* mobile */
-@media (max-width: 860px) {
-  .site-header { padding: 12px 16px; flex-direction: column; gap: 8px; }
-  .site-header nav { gap: 16px; font-size: 13px; overflow-x: auto; max-width: 100%; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-text { padding: 32px 16px; }
-  .section { padding: 56px 16px 0; }
-  .num { font-size: 64px; }
-  .section-head { flex-wrap: wrap; }
-  .memo { margin: 8px 0 0; }
-  .about, .interests, .experience { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr 1fr; }
-  .experience { gap: 24px; }
-  .experience article, .experience article:first-child { padding: 0 0 0 16px; border-left: 3px solid var(--pink-num); }
-  .contact { padding: 32px 16px; }
+
+/* スマホなどの「動きを減らす」設定を優先します。 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.is-pending { opacity: 1; transform: none; }
+  .header nav a:hover, .contact-button:hover { transform: none; }
+  .polaroid:hover, .polaroid:focus-within { transform: none; }
 }

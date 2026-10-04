@@ -1,109 +1,210 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KOTA YANO | 矢野公太ポートフォリオ</title>
-  <meta name="description" content="熊本学園大学 商学部の矢野公太のポートフォリオサイトです。">
+  <meta name="theme-color" content="#fdfbf6">
+  <meta name="description" content="矢野公太の自己紹介サイト。熊本学園大学の2年生。好きなこと、挑戦してきたことを紹介します。">
+  <title>矢野 公太 | KOTA YANO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Yomogi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="logo" href="#top"><span>KOTA</span> YANO</a>
-    <nav>
-      <a href="#top" class="active">ホーム</a>
-      <a href="#about">自己紹介</a>
-      <a href="#interests">好きなこと</a>
-      <a href="#experience">挑戦したこと</a>
-      <a href="#contact">お問い合わせ</a>
+<body id="top">
+  <a class="skip-link" href="#main">本文へ</a>
+  <header class="header">
+    <a class="brand" href="#top">KOTA YANO</a>
+    <nav aria-label="メインメニュー">
+      <a href="#about">ABOUT</a>
+      <a href="#likes">LIKES</a>
+      <a href="#challenge">CHALLENGE</a>
+      <a href="#contact">CONTACT</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>出会いから、<br>熊本の未来を<br><em>もっと面白く。</em></h1>
-        <p>地域の企業をもっと知り、<br>人や経験を通して、<br>自分も成長し、熊本の力になりたい。</p>
-        <a class="btn" href="#about">自己紹介を見る <span aria-hidden="true">⌄</span></a>
-      </div>
-      <img class="hero-img" src="images/hero.png" alt="笑顔の矢野公太のイラストと熊本城">
+  <main id="main">
+    <!-- キャッチコピーを変えるときは、この9文字とaria-labelを編集します。 -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">A LITTLE ABOUT ME</p>
+      <h1 id="hero-title" class="hero-title" aria-label="VITALITY.">
+        <span aria-hidden="true" style="--i:0">V</span><span aria-hidden="true" style="--i:1">I</span><span aria-hidden="true" style="--i:2">T</span><span aria-hidden="true" style="--i:3">A</span><span aria-hidden="true" style="--i:4">L</span><span aria-hidden="true" style="--i:5">I</span><span aria-hidden="true" style="--i:6">T</span><span aria-hidden="true" style="--i:7">Y</span><span aria-hidden="true" style="--i:8">.</span>
+      </h1>
+      <p class="hero-name">矢野 公太<span>KOTA YANO</span></p>
+      <p class="hero-school">熊本学園大学 商学部 商学科 2年</p>
+      <p class="hero-intro">気になったら、とりあえずやってみる。<br>そんな大学生です。</p>
+      <a class="scroll-link" href="#about">SCROLL<span aria-hidden="true"></span></a>
     </section>
 
-    <section id="about" class="section">
-      <div class="section-head"><span class="num">01</span><div><span class="en">ABOUT</span><h2>自己紹介</h2></div></div>
-      <div class="about">
-        <p>
-          矢野 公太（やの こうた）です。<br>
-          熊本学園大学 商学部 商学科の2年生です。<br>
-          現在は、株式会社ピークスキャリアでインターンをしています。<br>
-          周りからは「熱血」「バイタリティがある」「まじめ」と言われることが多く、興味を持ったことには積極的に取り組みます。<br>
-          熊本を形作っている企業をもっと知り、地域の皆さまと関わる中で、自分自身も成長し、熊本の力になれる人を目指しています。
-        </p>
+    <!-- 同じ文字を複製して、帯が途切れず流れるようにしています。 -->
+    <div class="word-band" aria-hidden="true">
+      <div class="word-track">
+        <span>VITALITY ✦ CURIOSITY ✦ ACTION ✦ VITALITY ✦ CURIOSITY ✦ ACTION ✦&nbsp;</span>
+        <span>VITALITY ✦ CURIOSITY ✦ ACTION ✦ VITALITY ✦ CURIOSITY ✦ ACTION ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="section-heading reveal">
+        <p class="section-label">ABOUT</p>
+        <h2 id="about-title">自己紹介</h2>
+      </div>
+      <div class="about-body reveal">
+        <!-- 元画像はそのまま。CSSで顔の部分だけを丸く切り取ります。 -->
+        <div class="avatar">
+          <img src="images/hero.png" width="516" height="410" alt="笑顔の矢野公太を描いたアニメ風イラスト" loading="lazy">
+        </div>
+        <h3>まず動く。話してみる。<br>それが、いちばん得意です。</h3>
+        <p class="about-text">はじめまして、矢野公太です。<br>熊本学園大学 商学部 商学科の2年生です。<br>周りからは「熱血」「まじめ」「バイタリティがある」とよく言われます。<br>気になったことは、<mark>とりあえずやってみる。</mark><br>人と話すのも、知らない場所に行くのも大好きです。</p>
         <dl class="profile">
-          <div><dt>👤 名前</dt><dd>矢野 公太（やの こうた）</dd></div>
-          <div><dt>🎓 大学</dt><dd>熊本学園大学<br>商学部 商学科 2年生</dd></div>
-          <div><dt>💼 活動</dt><dd>株式会社ピークスキャリア<br>インターン</dd></div>
-          <div><dt>🧠 MBTI</dt><dd>討論者（ENTP-A）<small>好奇心が強く、新しいアイデアを考えたり、人と意見を交わしたりするのが好きなタイプです。</small></dd></div>
+          <div><dt>大学</dt><dd>熊本学園大学 商学部 商学科</dd></div>
+          <div><dt>学年</dt><dd>2年</dd></div>
+          <div><dt>MBTI</dt><dd>討論者（ENTP-A）<span>好奇心が強く、新しいアイデアを考えたり、人と意見を交わしたりするのが好きなタイプです。</span></dd></div>
         </dl>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-head"><span class="num">02</span><div><span class="en">STRENGTHS</span><h2>わたしの強み</h2></div>
-        <p class="memo">やってみる、調べてみる、人と話してみる。<br>それが僕の原動力です！</p></div>
-      <div class="cards">
-        <article><div class="icon">💬</div><h3>コミュニケーション</h3><p>会話を楽しむこと、質問すること、聴くことを大切にしています。</p></article>
-        <article><div class="icon">🏃</div><h3>フットワークの軽さ</h3><p>興味を持ったらすぐに行動。でも、慎重によく考え、多角的に調べて物事を見る力があります。</p></article>
-        <article><div class="icon">💡</div><h3>とっさの判断</h3><p>ダジャレで鍛えられた発想力と、動画を2倍速で観る習慣で、素早く考え、行動できます。</p></article>
-        <article><div class="icon">📋</div><h3>計画性</h3><p>やることを書き出し、優先順位をつけて取り組みます。</p></article>
-        <article><div class="icon">🔥</div><h3>積極性</h3><p>とりあえずやってみること。やってみてから考える姿勢です。</p></article>
-        <article><div class="icon">💪</div><h3>忍耐力・辛抱強さ</h3><p>その時が来るまで継続して努力できます。</p></article>
-        <article><div class="icon">📈</div><h3>継続力</h3><p>自分でやると決めたことは続けられます。</p></article>
-        <article><div class="icon">🔍</div><h3>洞察力</h3><p>物事を多角的に見て、背景や本質を考える力があります。人や状況をよく観察し、行動につなげます。</p></article>
+    <section id="likes" class="section likes" aria-labelledby="likes-title">
+      <div class="section-heading reveal">
+        <p class="section-label">LIKES</p>
+        <h2 id="likes-title">好きなこと</h2>
+      </div>
+      <article class="like-block reveal">
+        <p class="number-label">No.01</p>
+        <h3>サッカー観戦</h3>
+        <p class="like-text">イギリスで、プレミアリーグの「チェルシー対クリスタルパレス」を現地で観戦しました。スタジアムの熱気は、今でも忘れられません。</p>
+        <div class="gallery" role="group" aria-label="イギリスの写真・動画ギャラリー">
+          <!-- .mediaの中にimgかvideoを入れると、空枠の表示が自動で消えます。 -->
+          <figure class="polaroid"><div class="media"><img src="images/london.jpeg" alt="ロンドンの赤い電話ボックスと、奥に見えるビッグ・ベン" loading="lazy"></div></figure>
+          <figure class="polaroid"><div class="media"><img src="images/chelsea-stadium.jpeg" alt="チェルシーのスタジアム。客席から見た緑のピッチと青いスタンド" loading="lazy"></div></figure>
+          <figure class="polaroid"><div class="media"><span class="placeholder" aria-hidden="true">03<span>UK</span></span></div></figure>
+        </div>
+      </article>
+      <article class="like-block reveal">
+        <p class="number-label">No.02</p>
+        <h3>ごはん巡り</h3>
+        <p class="like-text">週末に一人で、気になるお店へ行くのが楽しみです。高校2年生から撮りためてきたごはんの写真は、もうすぐ<mark><span class="count" data-count="300">300</span>枚</mark>。</p>
+        <div class="gallery gallery--food" role="group" aria-label="ごはんの写真・動画ギャラリー">
+          <!-- 縦長の録画は大きめに表示。自動再生せず、好きなときに再生できます。 -->
+          <figure class="polaroid polaroid--video"><div class="media media--video"><video src="images/food-gallery.mp4" poster="images/food-gallery-poster.jpg" controls playsinline preload="none" aria-label="撮りためたごはんの写真ギャラリーの録画">お使いのブラウザーでは動画を再生できません。<a href="images/food-gallery.mp4">ごはんギャラリーの動画を開く</a></video></div></figure>
+          <figure class="polaroid"><div class="media"><span class="placeholder" aria-hidden="true">02<span>FOOD</span></span></div></figure>
+          <figure class="polaroid"><div class="media"><span class="placeholder" aria-hidden="true">03<span>FOOD</span></span></div></figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="challenge" class="section challenge" aria-labelledby="challenge-title">
+      <div class="section-heading reveal">
+        <p class="section-label">CHALLENGE</p>
+        <h2 id="challenge-title">やってきたこと</h2>
+      </div>
+      <div class="challenge-grid">
+        <article class="challenge-card reveal">
+          <p class="stat"><span class="count" data-count="3">3</span><span class="unit">週間</span></p>
+          <h3>イギリス短期留学</h3>
+          <p>「英語はとにかく話してみる」と決めて過ごした3週間。日本を外から見るきっかけになり、帰ってからも英語の勉強を続けています。</p>
+        </article>
+        <article class="challenge-card reveal">
+          <p class="stat"><span class="count" data-count="30">30</span><span class="unit">人以上</span></p>
+          <h3>競技ダーツ部 副部長</h3>
+          <p>新入生の勧誘で、看板・チラシ・ダーツ体験など5つの作戦を考えて実行。たくさんの新入生が入ってくれました（男子20人・女子10人以上）。D4ダブルスでは3位になりました。</p>
+        </article>
+        <article class="challenge-card reveal">
+          <p class="stat"><span class="count" data-count="4">4</span><span class="unit">人から</span></p>
+          <h3>インターン</h3>
+          <p>株式会社ピークスキャリアで、営業やイベントの集客に挑戦中。開催1か月前に4人しか集まっていなかったイベントで、集め方を自分で工夫しました。</p>
+        </article>
       </div>
     </section>
 
-    <section id="interests" class="section">
-      <div class="section-head"><span class="num">03</span><div><span class="en">INTERESTS</span><h2>好きなこと</h2></div></div>
-      <div class="interests">
-        <article><div class="icon">⚽</div><div><h3>サッカー観戦</h3><p>サッカー観戦が好きです。イギリスに行き、プレミアリーグ（チェルシー対クリスタルパレス）を観戦しました。現地で観た試合の熱量やスタジアムの雰囲気は、今でも大きな刺激になっています。</p></div></article>
-        <article><div class="icon">🍴</div><div><h3>ご飯を食べに行くこと</h3><p>一日中何でもしていいと言われたら、週末においしいお店に一人でご飯を食べに行くこと。高校2年生の頃から、行ったお店のご飯の写真を撮り始め、今では300枚近くになりました。新しいお店を開拓する時間がとても好きです。</p></div></article>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <div class="section-head"><span class="num">04</span><div><span class="en">EXPERIENCE</span><h2>挑戦したこと</h2></div></div>
-      <div class="experience">
-        <article><h3>🏢 株式会社ピークスキャリアでのインターン</h3><p>営業・テレアポ・商談・イベント集客に取り組んでいます。29卒向けイベントを企画・集客し、4年生・3年生の先輩方の就活経験の共有や、自己分析のセッションなどを実施しました。当初は開催1か月前で集客4名でしたが、自分自身で集め方を確立し、目標達成に向けて取り組みました。</p></article>
-        <article><h3>✈️ イギリス短期留学（サマープログラム 3週間）</h3><p>積極的に英語を話そうとし、その経験が今の自信につながっています。海外での生活を通して、社会や日本を広い視野で見ることができるようになり、日本に帰ってからも英語の勉強を続けています。</p></article>
-        <article><h3>👥 熊本学園大学 競技ダーツ部（二年次・副部長）</h3><p>新入生の勧誘に力を入れ、看板・チラシ・ダーツ体験など5つの施策を立案・実行。その結果、男子20人・女子10人以上の新入生が来てくれました。D4 ダブルス3位の成績も残しました。</p></article>
+    <section id="contact" class="section contact reveal" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="contact-links">
+        <!-- 最初のクリックで詳細を表示、2回目は通常のリンクとして開きます。 -->
+        <a class="contact-button" href="https://www.instagram.com/dino.k6724/" target="_blank" rel="noopener noreferrer" data-contact aria-label="Instagram">
+          <span class="contact-name">Instagram</span><span class="contact-detail" hidden>dino.k6724</span>
+        </a>
+        <a class="contact-button" href="mailto:kyano.peacs@gmail.com" data-contact aria-label="Gmail">
+          <span class="contact-name">Gmail</span><span class="contact-detail" hidden>kyano.peacs@gmail.com</span>
+        </a>
       </div>
     </section>
   </main>
 
-  <footer id="contact" class="contact">
-    <div><span class="en">CONTACT</span><h2>お問い合わせ</h2></div>
-    <p>お仕事のご相談やお話をさせていただける機会がありましたら、お気軽にご連絡ください。</p>
-    <div class="links">
-      <a href="https://www.instagram.com/dino.k6724/" target="_blank" rel="noopener"><strong>Instagram</strong><span>dino.k6724 ↗</span></a>
-      <a href="mailto:kyano.peacs@gmail.com"><strong>Gmail</strong><span>kyano.peacs@gmail.com ↗</span></a>
-    </div>
+  <footer class="footer">
+    <a class="page-top" href="#top">PAGE TOP<span aria-hidden="true">↑</span></a>
+    <p>© KOTA YANO</p>
   </footer>
 
   <script>
-    // 1回目のクリックで連絡先を表示し、2回目でリンク先へ移動する
-    document.querySelectorAll('.links a').forEach(function (a) {
-      a.classList.add('reveal');
-      a.addEventListener('click', function (e) {
-        if (!a.classList.contains('open')) {
-          e.preventDefault();
-          a.classList.add('open');
-        }
+    (() => {
+      const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      // リンクはマウスでもキーボードでも同じ2段階で動きます。
+      document.querySelectorAll('[data-contact]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (link.classList.contains('is-open')) return;
+          event.preventDefault();
+          const detail = link.querySelector('.contact-detail');
+          detail.hidden = false;
+          link.classList.add('is-open');
+          link.setAttribute('aria-label', `${link.querySelector('.contact-name').textContent} ${detail.textContent}`);
+        });
       });
-    });
+
+      // HTMLには完成した数字を書いておくので、JSなしでも読めます。
+      if (motion.matches || !('IntersectionObserver' in window)) return;
+      const reveals = [...document.querySelectorAll('.reveal')];
+      const counts = [...document.querySelectorAll('[data-count]')];
+      const frames = new Set();
+      let observer;
+
+      const finish = () => {
+        if (observer) observer.disconnect();
+        frames.forEach(id => cancelAnimationFrame(id));
+        frames.clear();
+        reveals.forEach(el => el.classList.remove('is-pending'));
+        counts.forEach(el => { el.textContent = el.dataset.count; });
+        document.querySelector('.hero-title').classList.remove('play');
+      };
+
+      const countUp = el => {
+        const target = Number(el.dataset.count);
+        const start = performance.now();
+        const tick = now => {
+          if (motion.matches) { el.textContent = target; return; }
+          const progress = Math.min((now - start) / 1100, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+          if (progress < 1) {
+            const id = requestAnimationFrame(time => { frames.delete(id); tick(time); });
+            frames.add(id);
+          }
+        };
+        tick(start);
+      };
+
+      try {
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.remove('is-pending');
+            if (entry.target.hasAttribute('data-count')) countUp(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+
+        // 画面外の要素だけを隠します。JS未実行時は最初からすべて表示。
+        reveals.forEach(el => {
+          if (el.getBoundingClientRect().top > window.innerHeight) el.classList.add('is-pending');
+          observer.observe(el);
+        });
+        counts.forEach(el => observer.observe(el));
+        document.querySelector('.hero-title').classList.add('play');
+        motion.addEventListener('change', event => { if (event.matches) finish(); });
+      } catch (error) {
+        finish(); // 古いブラウザなどで失敗しても、文章を表示します。
+      }
+    })();
   </script>
 </body>
 </html>
